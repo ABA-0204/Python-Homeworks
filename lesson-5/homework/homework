@@ -1,0 +1,54 @@
+#def is_leap(year): """ Determines whether a given year is a leap year.
+year=int(input('Please, enter the year'))
+if type(year) is int:
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        print("the given year is leap year")
+    else:
+        print('the given year is not leap year')
+else:
+        print(' ValueError("Year must be an integer.")')
+
+ 
+
+#2. Conditional Statements Exercise
+#If n is odd, print Weird
+n=int(input('please, enter any number'))
+if n%2==1:
+    print('weird')
+#If n is even and in the inclusive range of 2 to 5, print Not Weird
+#If n is even and in the inclusive range of 6 to 20, print Weird
+#If n is even and greater than 20, print Not Weird
+#If n is even and in the inclusive range of 2 to 5, print Not Weird
+n=int(input('please, enter any number'))
+if n%2==0 and n<=5 and n>=2:
+    print('not weird')
+#If n is even and in the inclusive range of 6 to 20, print Weird
+n=int(input('please, enter any number'))
+if n%2==0 and n<=20 and n>=6:
+    print('weird')
+else:
+    print('not weird')
+#If n is even and greater than 20, print Not Weird
+n=int(input('please, enter any number'))
+if n%2==0 and n>=20:
+    print('not weird')
+#Given two integer numbers a and b. Find even numbers between this numbers. a and b are inclusive. Don't use loop.
+a=1
+b=8
+res = [i for i in range(a, b + 1) if i % 2 == 0]
+print(res)
+
+a=1
+b=8
+i= i in range(a, b + 1) 
+if i % 2 == 0:
+    print(res)
+
+
+
+
+
+
+
+
+
