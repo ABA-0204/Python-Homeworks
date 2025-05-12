@@ -1,0 +1,45 @@
+#is_prime(n) funksiyasini hosil qiling (n > 0). Agar n soni tub bo'lsa True, aks holda False qiymat qaytarsin.
+def is_prime(n):
+    if n%1==0 and n%n==0:
+        print('true')
+    else:
+        print('false')
+
+
+is_prime(7)
+
+#digit_sum(k) funksiyasini yozing, u k sonining raqamlari yig'indisini hisoblaydi.
+def digit_sum(k):
+    return sum(int(digit) for digit in str(abs(k)))
+digit_sum(345)
+#Berilgan N sonidan oshmaydigan barcha 2 ning darajalarini (ya'ni, 2**k shaklidagi sonlarni) chop etuvchi funksiyani yozing.
+def funksiya(N):
+    k = 0
+    while 2**k <= N:
+        print(2**k)
+        k += 1
+
+funksiya(20)
+
+
+#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
