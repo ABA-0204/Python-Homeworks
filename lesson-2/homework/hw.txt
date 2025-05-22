@@ -1,0 +1,59 @@
+import datetime
+import random
+import string
+
+# 1. Ask for user's name and year of birth, then calculate and display age
+name = input("Enter your name: ")
+year_of_birth = int(input("Enter your year of birth: "))
+current_year = datetime.datetime.now().year
+age = current_year - year_of_birth
+print(f"{name}, you are {age} years old.")
+
+# 2. Extract Car Names from text
+txt1 = 'LMaasleitbtui'
+car1 = txt1[0::2]  # Extract every second character starting at 0
+print(f"Extracted car name 1: {car1}")
+
+# 3. Extract Car Names from another text
+txt2 = 'MsaatmiazD'
+car2 = txt2[::2]  # Extract every second character
+print(f"Extracted car name 2: {car2}")
+
+# 4. Extract residence area
+txt3 = "I'am John. I am from London"
+area = txt3.split("from ")[-1]
+print(f"Residence area: {area}")
+
+# 5. Reverse string
+user_str = input("Enter a string to reverse: ")
+reversed_str = user_str[::-1]
+print(f"Reversed string: {reversed_str}")
+
+# 6. Count vowels in a string
+vowel_str = input("Enter a string to count vowels: ")
+vowels = 'aeiouAEIOU'
+vowel_count = sum(1 for char in vowel_str if char in vowels)
+print(f"Number of vowels: {vowel_count}")
+
+# 7. Find maximum value in a list
+num_list = list(map(float, input("Enter numbers separated by space: ").split()))
+max_value = max(num_list)
+print(f"Maximum value: {max_value}")
+
+# 8. Check if a word is a palindrome
+word = input("Enter a word to check palindrome: ")
+if word == word[::-1]:
+    print("The word is a palindrome.")
+else:
+    print("The word is not a palindrome.")
+
+# 9. Extract email domain
+email = input("Enter your email address: ")
+domain = email.split("@")[-1]
+print(f"Email domain: {domain}")
+
+# 10. Generate random password
+length = int(input("Enter desired password length: "))
+characters = string.ascii_letters + string.digits + string.punctuation
+password = ''.join(random.choice(characters) for _ in range(length))
+print(f"Generated password: {password}")
