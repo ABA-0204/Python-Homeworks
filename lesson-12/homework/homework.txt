@@ -1,0 +1,48 @@
+def is_prime(n):
+    if n < 2:
+        return False
+    for item in range(2,n):
+        if n % item == 0:
+            return False
+    return True
+primes=[]
+def numbers_period(start, end):
+    """Find prime numbers in a given range and store them in the shared primes list."""
+    for number in range(start, end + 1):
+        if is_prime(number):
+            primes.append(number)
+            print(primes)
+
+def find_primes_multithreaded(start_range, end_range, num_threads=4):
+    """Divide the range among multiple threads and collect all prime numbers."""
+    thread_list = []
+    result = []
+    step = (end_range - start_range) // num_threads
+    results_lock = threading.Lock()
+
+    def thread_function(start, end):
+        sub_result = []
+        check_primes_in_range(start, end, sub_result)
+        with results_lock:
+            result.extend(sub_result)
+
+    for i in range(num_threads):
+        start = start_range + i * step
+        # Ensure the last thread covers the remaining range
+        end = start_range + (i + 1) * step if i < num_threads - 1 else end_range
+        thread = threading.Thread(target=thread_function, args=(start, end))
+        thread_list.append(thread)
+        thread.start()
+
+    for thread in thread_list:
+        thread.join()
+
+    return sorted(result)
+
+# Example usage
+if __name__ == "__main__":
+    start = 10
+    end = 100
+    num_threads = 4
+    primes = find_primes_multithreaded(start, end, num_threads)
+    print(f"Prime numbers between {start} and {end}: {primes}")
