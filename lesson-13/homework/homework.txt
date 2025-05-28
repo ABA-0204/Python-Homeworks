@@ -1,0 +1,9 @@
+#Timezone Converter: Create a program that allows the user to enter a date and time along with their current timezone, and then convert and print the date and time in another timezone of their choice.
+from datetime import pytz
+user_datetimetimezone=input('Enter your current date and  time with timezone in format('2023-02-28 14:30:00+05:30') : ')
+date_format = '%Y-%m-%d %H:%M:%S%z'
+date_obj = datetime.strptime(date_str, date_format)
+print(date_obj)
+
+
+
