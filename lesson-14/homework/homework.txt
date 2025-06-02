@@ -1,0 +1,35 @@
+import json
+
+def load_books():
+    try:
+        with open('books.json', 'r') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return []
+
+def save_books(books):
+    with open('books.json', 'w') as file:
+        json.dump(books, file, indent=4)
+
+def add_book(book):
+    books = load_books()
+    books.append(book)
+    save_books(books)
+
+def update_book(title, updated_info):
+    books = load_books()
+    for book in books:
+        if book['title'].lower() == title.lower():
+            book.update(updated_info)
+            break
+    save_books(books)
+
+def delete_book(title):
+    books = load_books()
+    books = [book for book in books if book['title'].lower() != title.lower()]
+    save_books(books)
+
+# Example Usage
+add_book({"title": "Python Basics", "author": "John Doe", "year": 2020})
+update_book("Python Basics", {"year": 2021})
+delete_book("Python Basics")
