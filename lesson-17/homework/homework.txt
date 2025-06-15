@@ -1,1 +1,126 @@
-fvfgfgeffknesjkg
+import pandas as pd
+
+
+df = pd.DataFrame({
+    'Name': ['Alice', 'Bob'],
+    'Age': [25, 30]
+})
+
+print(df.shape)       # (rows, columns)
+print(df.columns)     # Index of column names
+print(df.index)       # Index of row labels
+print(df.dtypes)      # Data type of each column
+
+s = pd.Series([10, 20, 30])
+print(s + 5)       # Add 5 to each element
+print(s.mean())    # Mean
+print(s.max())     # Maximum
+
+df = df.rename(columns={'Name': 'Full Name', 'Age': 'Years'})
+print(df.columns)
+import pandas as pd
+
+data = {'First Name': ['Alice', 'Bob', 'Charlie', 'David'], 'Age': [25, 30, 35, 40], 
+        'City': ['New York', 'San Francisco', 'Los Angeles', 'Chicago']} 
+df = pd.DataFrame(data)
+#Rename column names using function. "First Name" --> "first_name", "Age" --> "age
+df=df.rename(columns={"First Name":"first_name", "Age":"age"})
+#Print the first 3 rows of the DataFrame
+df.head(3)
+#Find the mean age of the individuals
+mean_age = df['age'].mean()
+print(mean_age)
+#Select and print only the 'Name' and 'City' columns
+selected_columns=df[['first_name','City']]
+print(selected_columns)
+#Add a new column 'Salary' with random salary values
+import numpy as np
+df['Salary']=np.random.rand(4)
+#Display summary statistics of the DataFrame
+print(df.describe())
+
+#2#Create a DataFrame named sales_and_expenses with columns 'Month', 'Sales', 
+# and 'Expenses', representing monthly sales and expenses data. Use below table.
+sales_and_expenses =pd.DataFrame({'Month':['Jan','Feb','Mar','Apr'], 'Sales':[5000,6000,7500,8000], 'Expenses':[3000,3500,4000,4500]})
+
+
+#Calculate and display the maximum sales and expenses.
+print(sales_and_expenses[['Sales','Expenses']].max())
+#Calculate and display the minimum sales and expenses.
+print(sales_and_expenses[['Sales','Expenses']].min())
+#Calculate and display the average sales and expenses.
+print(sales_and_expenses[['Sales','Expenses']].mean())
+#3#Create a DataFrame named expenses with columns 
+# 'Category', 'January', 'February', 'March', and 'April', 
+# representing monthly expenses for different categories. Use below table.
+expenses_with_columns =pd.DataFrame({'category':['Rent','Utilities','Groceries','Entertainment'], 
+                                     'January':[1200,200,300,150],
+                                       'February':[1300,220,320,160],
+                                       'March':[1400,240,330,170],
+                                       'April':[1500,250,350,180]
+                                })
+
+#Calculate and display the maximum expense for each category.
+expenses = expenses_with_columns
+
+expenses.set_index('Category', inplace=True)
+
+# Calculate and display the maximum expense for each category
+max_expenses = expenses.max(axis=1)
+
+# ✅ Step 1: Create the DataFrame
+data = {
+    'Category': ['Rent', 'Utilities', 'Groceries', 'Entertainment'],
+    'January': [1200, 200, 300, 150],
+    'February': [1300, 220, 320, 160],
+    'March': [1400, 240, 330, 170],
+    'April': [1500, 250, 350, 180]
+}
+
+expenses = pd.DataFrame(data)
+
+# ✅ Step 2: Set 'Category' as the index
+expenses.set_index('Category', inplace=True)
+
+# ✅ Step 3: Calculate and display the maximum expense for each category
+max_expenses = expenses.max(axis=1)
+
+print("Maximum expense for each category:")
+print(max_expenses)
+#Calculate and display the minimum expense for each category.
+data = {
+    'Category': ['Rent', 'Utilities', 'Groceries', 'Entertainment'],
+    'January': [1200, 200, 300, 150],
+    'February': [1300, 220, 320, 160],
+    'March': [1400, 240, 330, 170],
+    'April': [1500, 250, 350, 180]
+}
+
+expenses = pd.DataFrame(data)
+
+# ✅ Step 2: Set 'Category' as the index
+expenses.set_index('Category', inplace=True)
+
+min_expenses = expenses.min(axis=1)
+
+print("Minimum expense for each category:")
+print(min_expenses)
+#Calculate and display the average expense for each category.
+data = {
+    'Category': ['Rent', 'Utilities', 'Groceries', 'Entertainment'],
+    'January': [1200, 200, 300, 150],
+    'February': [1300, 220, 320, 160],
+    'March': [1400, 240, 330, 170],
+    'April': [1500, 250, 350, 180]
+}
+
+expenses = pd.DataFrame(data)
+
+# ✅ Step 2: Set 'Category' as the index
+expenses.set_index('Category', inplace=True)
+
+mean_expenses = expenses.mean(axis=1)
+
+
+print(mean_expenses)
+
